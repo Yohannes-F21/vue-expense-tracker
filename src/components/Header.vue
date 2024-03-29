@@ -73,13 +73,15 @@
       </div>
     </nav>
   </header> -->
-  <div class="navbar bg-primary text-primary-content">
-    <img
-      src="https://cdn-icons-png.flaticon.com/128/5501/5501375.png"
-      alt="expense-tracker"
-      class="w-10 h-auto"
-    />
-    <button class="btn btn-ghost text-xl">Expense Tracker</button>
+  <div class="navbar bg-primary text-primary-content grid grid-cols-5 gap-4">
+    <div class="col-span-2">
+      <img
+        src="https://cdn-icons-png.flaticon.com/128/5501/5501375.png"
+        alt="expense-tracker"
+        class="w-10 h-auto"
+      />
+      <button class="btn btn-ghost text-xl">Expense Tracker</button>
+    </div>
     <div
       class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5"
     >

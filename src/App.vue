@@ -5,7 +5,7 @@ import Footer from "./components/Footer.vue";
 </script>
 
 <template>
-  <div class="flex flex-col h-screen justify-between">
+  <div class="">
     <!-- <<header>
       <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
   
@@ -22,7 +22,7 @@ import Footer from "./components/Footer.vue";
     <main>
       <RouterView />
     </main>
-    <Footer></Footer>
+    <!-- <Footer></Footer> -->
   </div>
 </template>
 
