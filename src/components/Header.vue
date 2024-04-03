@@ -82,15 +82,13 @@
       />
       <button class="btn btn-ghost text-xl">Expense Tracker</button>
     </div>
-    <div
+    <nav
       class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5"
     >
-      <a class="font-medium text-white" href="#" aria-current="page"
-        >Dashboard</a
+      <RouterLink to="/" class="font-medium text-white">Dashboard</RouterLink>
+      <RouterLink to="/transaction" class="font-medium text-white"
+        >Traransaction</RouterLink
       >
-      <a class="font-medium text-gray-300 hover:text-white" href="#"
-        >Transactions</a
-      >
-    </div>
+    </nav>
   </div>
 </template>

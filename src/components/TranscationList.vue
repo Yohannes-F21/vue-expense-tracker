@@ -1,21 +1,19 @@
 <script setup>
 import TransactionItem from "../components/TransactionItem.vue";
+const props = defineProps(["expenses"]);
+// console.log(props.expenses);
 </script>
 <template>
-  <div class="border-solid border-black w-[40%] mx-auto p-4">
+  <div class="w-[40%] mx-auto p-4">
     <h2 class="font-semibold">History</h2>
     <hr />
-    <TransactionItem
-      transaction-name="Sneakers"
-      transaction-cost="2000"
-    ></TransactionItem>
-    <TransactionItem
-      transaction-name="Sneakers"
-      transaction-cost="2000"
-    ></TransactionItem>
-    <TransactionItem
-      transaction-name="Sneakers"
-      transaction-cost="2000"
-    ></TransactionItem>
+    <ul>
+      <li v-for="expense in expenses" :key="expense.id">
+        <TransactionItem
+          :text="expense.text"
+          :amount="expense.amount"
+        ></TransactionItem>
+      </li>
+    </ul>
   </div>
 </template>

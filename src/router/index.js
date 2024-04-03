@@ -1,4 +1,6 @@
 import Dashboard from "@/views/Dashboard.vue";
+import Transaction from "@/views/Transaction.vue";
+
 import { createRouter, createWebHistory } from "vue-router";
 // import HomeView from "../views/HomeView.vue";
 // import AboutView from "@/views/AboutView.vue";
@@ -20,6 +22,11 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       // component: () => import('../views/AboutView.vue')
       // component: AboutView,
+    },
+    {
+      path: "/transaction",
+      name: "transaction",
+      component: Transaction,
     },
   ],
 });
