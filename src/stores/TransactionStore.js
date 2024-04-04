@@ -7,7 +7,7 @@ export const useTransactionStore = defineStore("transaction", () => {
     {
       id: 1,
       text: "Groceries",
-      amount: 50.0,
+      amount: -50.0,
     },
     {
       id: 2,
@@ -30,19 +30,28 @@ export const useTransactionStore = defineStore("transaction", () => {
       amount: 5.0,
     },
   ]);
-  const total = ref(0.0);
-  const income = ref(0.0);
-  const expense = ref(0.0);
 
   // const doubleCount = computed(() => count.value * 2)
   // function increment() {
   //   count.value++
   // }
   const totalBalance = computed(() => {
-    return (total.value = expensesList.reduce((acc, transaction) => {
-      return acc + transaction.amount;
-    }, 0));
+    return expensesList.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue.amount;
+    }, 0);
   });
 
-  return { expensesList, total, income, expense, totalBalance };
+  const income = computed(() => {
+    return expensesList.reduce((accumulator, currentValue) => {
+      return accumulator + (currentValue.amount >= 0 ? currentValue.amount : 0);
+    }, 0);
+  });
+
+  const expense = computed(() => {
+    return expensesList.reduce((accumulator, currentValue) => {
+      return accumulator + (currentValue.amount <= 0 ? currentValue.amount : 0);
+    }, 0);
+  });
+
+  return { expensesList, income, expense, totalBalance };
 });

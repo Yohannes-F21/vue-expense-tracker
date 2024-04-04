@@ -1,9 +1,31 @@
 <script setup>
-import { ref } from "vue";
-
+import { ref, onMounted, reactive } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
+import { useTransactionStore } from "../stores/TransactionStore";
+let transaction = useTransactionStore();
+let noID = transaction.expensesList.length + 1;
+onMounted(() => {
+  // console.log(noID);
+  // console.log(transaction.expensesList);
+});
 const text = ref("");
-const amount = ref();
-console.log(text);
+const amount = ref(0);
+const formData = reactive({
+  id: noID,
+  text: " ",
+  amount: null,
+});
+
+const onSubmit = () => {
+  // const newTransactionItems = {
+  //   id: noID++,
+  //   text: text,
+  //   amount: amount,
+  // };
+  transaction.expensesList.push(formData);
+  router.push("/dashboard");
+};
 </script>
 <template>
   <h3 class="text-xl font-semibold">Add new transaction</h3>
@@ -16,7 +38,7 @@ console.log(text);
         type="text"
         id="text"
         placeholder="Enter text..."
-        v-model="text"
+        v-model="formData.text"
       />
     </div>
     <div class="form-control pb-4 pl-4 pr-4">
@@ -25,10 +47,10 @@ console.log(text);
         (negative - expense, positive - income)</label
       >
       <input
-        type="text"
+        type="number"
         id="amount"
         placeholder="Enter amount..."
-        v-model="amount"
+        v-model="formData.amount"
         class="border border-solid border-[#dedede] text-4 rounded-sm p-2"
       />
     </div>
