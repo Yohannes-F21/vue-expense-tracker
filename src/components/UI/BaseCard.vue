@@ -15,7 +15,7 @@ const textSign = computed(() => {
 });
 </script>
 <template>
-  <div class="m-10 p-8 rounded-xl shadow-lg flex justify-between">
+  <div class="my-8 p-8 w-[80%] rounded-xl shadow-lg flex justify-between">
     <p>{{ balanceType }}</p>
     <p class="font-semibold" :class="textColor">
       <span class="font-bold">$</span><span v-show="textSign">-</span

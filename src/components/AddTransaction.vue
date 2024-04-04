@@ -12,7 +12,7 @@ console.log(text);
     <div class="form-control p-4">
       <label for="text" class="text-base">Text</label>
       <input
-        class="border border-solid border-[#dedede] text-4 rounded-sm p-2.5"
+        class="border border-solid border-[#dedede] text-4 rounded-sm p-2"
         type="text"
         id="text"
         placeholder="Enter text..."
@@ -29,9 +29,9 @@ console.log(text);
         id="amount"
         placeholder="Enter amount..."
         v-model="amount"
-        class="border border-solid border-[#dedede] text-4 rounded-sm p-2.5"
+        class="border border-solid border-[#dedede] text-4 rounded-sm p-2"
       />
     </div>
-    <button class="btn btn-primary w-full">Add Transaction</button>
+    <button class="btn btn-primary ml-5 w-[90%]">Add Transaction</button>
   </form>
 </template>
