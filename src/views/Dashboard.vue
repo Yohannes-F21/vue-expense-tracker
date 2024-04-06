@@ -10,11 +10,12 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="max-w-screen-md mx-auto flex justify-center items-center gap-4">
-    <BaseCard balance-type="BALANCE" :balance="transaction.totalBalance">
+  <div class="max-w-screen-md mx-auto flex justify-center items-center gap-8">
+    <BaseCard balance-type="BALANCE" :balance="+transaction.totalBalance">
     </BaseCard>
-    <BaseCard balance-type="INCOME" :balance="transaction.income"> </BaseCard>
-    <BaseCard balance-type="EXPENSE" :balance="transaction.expense"> </BaseCard>
+    <BaseCard balance-type="INCOME" :balance="+transaction.income"> </BaseCard>
+    <BaseCard balance-type="EXPENSE" :balance="+transaction.expense">
+    </BaseCard>
   </div>
-  <TransactionList :expenses="transaction.expensesList"></TransactionList>
+  <TransactionList></TransactionList>
 </template>

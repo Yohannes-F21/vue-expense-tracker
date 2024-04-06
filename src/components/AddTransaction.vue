@@ -2,6 +2,8 @@
 import { ref, onMounted, reactive } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
+import { useToast } from "vue-toastification";
+const toast = useToast();
 import { useTransactionStore } from "../stores/TransactionStore";
 let transaction = useTransactionStore();
 let noID = transaction.expensesList.length + 1;
@@ -9,8 +11,8 @@ onMounted(() => {
   // console.log(noID);
   // console.log(transaction.expensesList);
 });
-const text = ref("");
-const amount = ref(0);
+// const text = ref("");
+// const amount = ref(0);
 const formData = reactive({
   id: noID,
   text: " ",
@@ -18,12 +20,19 @@ const formData = reactive({
 });
 
 const onSubmit = () => {
-  // const newTransactionItems = {
-  //   id: noID++,
-  //   text: text,
-  //   amount: amount,
-  // };
+  if (!formData.text || !formData.amount) {
+    toast.error("Both fields must be filled");
+    return;
+  }
+  if (
+    transaction.totalBalance <= 0 ||
+    transaction.totalBalance < Math.abs(formData.amount)
+  ) {
+    toast.error("You are out of BALANCE");
+    return;
+  }
   transaction.expensesList.push(formData);
+  toast.success("Transaction successfully Added ");
   router.push("/dashboard");
 };
 </script>
